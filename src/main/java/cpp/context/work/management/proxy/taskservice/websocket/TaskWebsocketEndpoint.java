@@ -34,7 +34,7 @@ public class TaskWebsocketEndpoint {
     @OnOpen
     public void onOpen(final Session session) {
         sessions.add(session);
-        Logger.getLogger(TaskWebsocketEndpoint.class.getName()).log(Level.INFO, null, "Opened Session: " + session);
+        System.out.println("Opened Session: " + session);
     }
 
     /*
@@ -44,7 +44,7 @@ public class TaskWebsocketEndpoint {
     public void onClose(Session session) {
         try {
             sessions.remove(session);
-            Logger.getLogger(TaskWebsocketEndpoint.class.getName()).log(Level.INFO, null, "Closed Session: " + session);
+        System.out.println("Closed Session: " + session);
         } catch (Exception e) {
         }
     }
@@ -54,7 +54,7 @@ public class TaskWebsocketEndpoint {
      */
     @OnMessage
     public void onMessage(String message, Session session) {
-        Logger.getLogger(TaskWebsocketEndpoint.class.getName()).log(Level.INFO, null, "Got UI Message: " + message);
+        System.out.println("Got UI Message: " + message);
     }
 
     /*

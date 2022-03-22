@@ -70,14 +70,16 @@ public class TaskService {
     public UpdateTaskResponse updateTask(CreateTaskRequest request) {
 
         CreateTaskResponse task;
-        
-        if (request.getId() == null || taskDataStore.getTaskById(request.getId()) == null) {
+
+        if (request.getId() == null) {
             task = createTask(request);
         } else {
             task = taskDataStore.getTaskById(request.getId());
             if (task != null) {
                 task.setStatus(request.getStatus());
                 taskDataStore.updateTask(task);
+            } else {
+                task = createTask(request);
             }
         }
 

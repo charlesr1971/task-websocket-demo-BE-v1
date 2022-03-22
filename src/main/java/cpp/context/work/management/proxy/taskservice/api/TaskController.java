@@ -21,7 +21,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -48,7 +47,6 @@ public class TaskController {
         CreateTaskResponse response = null;
         try {
             response = service.createTask(request);
-            trigerWebsocketEvent(response);
             Logger.getLogger(TaskController.class.getName()).log(Level.INFO, null, "POST Create task response " + response);
             return Response.ok(response).build();
         } catch (Exception e) {
@@ -58,21 +56,6 @@ public class TaskController {
         }
 
         return Response.serverError().build();
-    }
-
-    public static final String API_URL = "http://localhost:8080/taskwebsocketservice/api/v1/taskwebsocket";
-
-    public void trigerWebsocketEvent(CreateTaskResponse payload) {
-        System.out.println("trigerWebsocket API Call: " + payload);
-        try {
-            ClientBuilder.newClient().target(API_URL)
-                    .request(MediaType.APPLICATION_JSON_TYPE)
-                    .async()
-                    .post(Entity.entity(payload, MediaType.APPLICATION_JSON_TYPE));
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @GET
@@ -91,7 +74,6 @@ public class TaskController {
                         .entity(Entity.entity("Not Found Task with Id " + taskId, MediaType.APPLICATION_JSON_TYPE))
                         .build();
             } else {
-                trigerWebsocketEvent(response);
                 Logger.getLogger(TaskController.class.getName()).log(Level.INFO, null, "GET task response " + response);
                 return Response.ok(response).build();
             }
