@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "5e84beb9-ed9b-42d7-a278-82731944be4a",
+		"name": "Task Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get a Task",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task"
+					]
+				},
+				"description": "Task Collection"
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"28af8200-e83f-4c08-9e19-905baeb2388c\",\n  \"name\": \"My Task\",\n  \"assignee\": \"peter\",\n  \"created\": \"2021-06-08T11:01:02.901+0000\",\n  \"due\": \"2014-08-30T08:00:00.000+0000\",\n  \"followUp\": \"2014-08-25T08:00:00.000+0000\",\n  \"delegationState\": \"PENDING\",\n  \"description\": \"This have to be done very urgent\",\n  \"executionId\": null,\n  \"owner\": \"mary\",\n  \"parentTaskId\": null,\n  \"priority\": 30,\n  \"processDefinitionId\": null,\n  \"processInstanceId\": null,\n  \"taskDefinitionKey\": null,\n  \"caseExecutionId\": null,\n  \"caseInstanceId\": \"24\",\n  \"caseDefinitionId\": null,\n  \"suspended\": false,\n  \"formKey\": null,\n  \"tenantId\": null,\n  \"status\": \"Updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task"
+					]
+				},
+				"description": "Create Task"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"28af8200-e83f-4c08-9e19-905baeb2388c\",\n  \"name\": \"My Task\",\n  \"assignee\": \"peter\",\n  \"created\": \"2021-06-08T11:01:02.901+0000\",\n  \"due\": \"2014-08-30T08:00:00.000+0000\",\n  \"followUp\": \"2014-08-25T08:00:00.000+0000\",\n  \"delegationState\": \"PENDING\",\n  \"description\": \"This have to be done very urgent\",\n  \"executionId\": null,\n  \"owner\": \"mary\",\n  \"parentTaskId\": null,\n  \"priority\": 30,\n  \"processDefinitionId\": null,\n  \"processInstanceId\": null,\n  \"taskDefinitionKey\": null,\n  \"caseExecutionId\": null,\n  \"caseInstanceId\": \"24\",\n  \"caseDefinitionId\": null,\n  \"suspended\": false,\n  \"formKey\": null,\n  \"tenantId\": null,\n  \"status\": \"Updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"e421cff9-b5d9-4635-aeb0-2dd3a70ca8af\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Task",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task/e421cff9-b5d9-4635-aeb0-2dd3a70ca8af",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task",
+						"e421cff9-b5d9-4635-aeb0-2dd3a70ca8af"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Task",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": null,\n  \"name\": \"My Task\",\n  \"assignee\": \"peter\",\n  \"created\": \"2021-06-08T11:01:02.901+0000\",\n  \"due\": \"2014-08-30T08:00:00.000+0000\",\n  \"followUp\": \"2014-08-25T08:00:00.000+0000\",\n  \"delegationState\": \"PENDING\",\n  \"description\": \"This have to be done very urgent\",\n  \"executionId\": null,\n  \"owner\": \"mary\",\n  \"parentTaskId\": null,\n  \"priority\": 30,\n  \"processDefinitionId\": null,\n  \"processInstanceId\": null,\n  \"taskDefinitionKey\": null,\n  \"caseExecutionId\": null,\n  \"caseInstanceId\": \"24\",\n  \"caseDefinitionId\": null,\n  \"suspended\": false,\n  \"formKey\": null,\n  \"tenantId\": null,\n  \"status\": \"Updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task/28af8200-e83f-4c08-9e19-905baeb2388c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task",
+						"28af8200-e83f-4c08-9e19-905baeb2388c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Task",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": null,\n  \"name\": \"My Task\",\n  \"assignee\": \"peter\",\n  \"created\": \"2021-06-08T11:01:02.901+0000\",\n  \"due\": \"2014-08-30T08:00:00.000+0000\",\n  \"followUp\": \"2014-08-25T08:00:00.000+0000\",\n  \"delegationState\": \"PENDING\",\n  \"description\": \"This have to be done very urgent\",\n  \"executionId\": null,\n  \"owner\": \"mary\",\n  \"parentTaskId\": null,\n  \"priority\": 30,\n  \"processDefinitionId\": null,\n  \"processInstanceId\": null,\n  \"taskDefinitionKey\": null,\n  \"caseExecutionId\": null,\n  \"caseInstanceId\": \"24\",\n  \"caseDefinitionId\": null,\n  \"suspended\": false,\n  \"formKey\": null,\n  \"tenantId\": null,\n  \"status\": \"New\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all Task",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/taskservice/api/v1/task/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"taskservice",
+						"api",
+						"v1",
+						"task",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
