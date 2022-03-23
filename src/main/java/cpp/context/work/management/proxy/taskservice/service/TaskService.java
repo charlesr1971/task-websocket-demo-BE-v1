@@ -48,6 +48,7 @@ public class TaskService {
     public DeleteTaskResponse deleteTasks() {
 
         taskDataStore.clear();
+        triggerTaskEvent("Deleted");
         return new DeleteTaskResponse(null, "Deleted");
     }
 
@@ -59,7 +60,7 @@ public class TaskService {
             taskDataStore.deleteTask(task.getId());
 
             DeleteTaskResponse response = new DeleteTaskResponse(task.getId(), "Deleted");
-            triggerTaskEvent(response); // send update to listerners
+            triggerTaskEvent(response);
 
             return response;
         } else {
@@ -77,6 +78,26 @@ public class TaskService {
             task = taskDataStore.getTaskById(request.getId());
             if (task != null) {
                 task.setStatus(request.getStatus());
+                task.setName(request.getName());
+                task.setAssignee(request.getAssignee());
+                task.setCreated(request.getCreated());
+                task.setDue(request.getDue());
+                task.setFollowUp(request.getFollowUp());
+                task.setDelegationState(request.getDelegationState());
+                task.setDescription(request.getDescription());
+                task.setExecutionId(request.getExecutionId());
+                task.setOwner(request.getOwner());
+                task.setParentTaskId(request.getParentTaskId());
+                task.setPriority(request.getPriority());
+                task.setProcessDefinitionId(request.getProcessDefinitionId());
+                task.setProcessInstanceId(request.getProcessInstanceId());
+                task.setTaskDefinitionKey(request.getTaskDefinitionKey());
+                task.setCaseExecutionId(request.getCaseExecutionId());
+                task.setCaseInstanceId(request.getCaseInstanceId());
+                task.setCaseDefinitionId(request.getCaseDefinitionId());
+                task.setSuspended(request.isSuspended());
+                task.setFormKey(request.getFormKey());
+                task.setTenantId(request.getTenantId());
                 taskDataStore.updateTask(task);
             } else {
                 task = createTask(request);
@@ -95,7 +116,26 @@ public class TaskService {
         CreateTaskResponse task = taskDataStore.getTaskById(taskId);
         if (task != null) {
             task.setStatus(request.getStatus());
-            //set other things later
+            task.setName(request.getName());
+            task.setAssignee(request.getAssignee());
+            task.setCreated(request.getCreated());
+            task.setDue(request.getDue());
+            task.setFollowUp(request.getFollowUp());
+            task.setDelegationState(request.getDelegationState());
+            task.setDescription(request.getDescription());
+            task.setExecutionId(request.getExecutionId());
+            task.setOwner(request.getOwner());
+            task.setParentTaskId(request.getParentTaskId());
+            task.setPriority(request.getPriority());
+            task.setProcessDefinitionId(request.getProcessDefinitionId());
+            task.setProcessInstanceId(request.getProcessInstanceId());
+            task.setTaskDefinitionKey(request.getTaskDefinitionKey());
+            task.setCaseExecutionId(request.getCaseExecutionId());
+            task.setCaseInstanceId(request.getCaseInstanceId());
+            task.setCaseDefinitionId(request.getCaseDefinitionId());
+            task.setSuspended(request.isSuspended());
+            task.setFormKey(request.getFormKey());
+            task.setTenantId(request.getTenantId());
             taskDataStore.updateTask(task);
 
             UpdateTaskResponse response = new UpdateTaskResponse(request.getId(), request.getStatus());
@@ -129,8 +169,10 @@ public class TaskService {
                 task = objectWriter.writeValueAsString((DeleteTaskResponse) response);
             } else if (response instanceof UpdateTaskResponse) {
                 task = objectWriter.writeValueAsString((UpdateTaskResponse) response);
-            } else {
+            } else if (response instanceof CreateTaskResponse) {
                 task = objectWriter.writeValueAsString((CreateTaskResponse) response);
+            } else {
+                task = (String) response;
             }
 
             eventTrigger.fireTaskEvent(task);
@@ -166,4 +208,5 @@ public class TaskService {
         ctr.setTenantId(request.getTenantId());
         return ctr;
     }
+
 }
